@@ -38,5 +38,7 @@ const operations = {
 }
 
 function operate (num1, operator, num2) {
-
+    return operations[operator](num1,num2);
 }
+
+
