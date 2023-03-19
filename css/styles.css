@@ -12,25 +12,70 @@ body {
     align-items: center;
 }
 
-#main-container {
+#calculator {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 1rem;
+    border: groove;
+    padding: 1rem;
+    border-color: gray;
+    border-width: 0.3rem;
+    background-color: #FFC0CB;
+    font-size: 4rem;
 }
 
 #results-window {
     text-align: center;
+    border: solid;
+    padding: 0.5rem 3rem;
+    border-color: gray;
+    background-color: #FFFDD9;
+    border-radius: 20%;
 }
 
 #waifu {
-    width: 10rem;
+    width: 18rem;
 }
 
 .buttons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 0.2rem;
+}
+
+.button {
+    font-size: 2rem;
+    background-color: #A6E4FF;
+    /* background-image: linear-gradient(#37ADB2, #329CA0); */
+    border: 1px solid #49c4f8;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0 1px 1px;
+    color: black;
+    cursor: pointer;
+    display: block;
+    font-family: -apple-system,".SFNSDisplay-Regular","Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 100%;
+    margin: 0;
+    outline: 0;
+    padding: 11px 15px 12px;
+    text-align: center;
+    transition: box-shadow .05s ease-in-out,opacity .05s ease-in-out;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 100%;
+}
+
+.button:hover {
+    background-color: #72d5ff;
+    text-decoration: none;
+    transition-duration: .15s, .15s;
+}
+  
+.button:active {
+    box-shadow: rgba(0, 0, 0, 0.15) 0 2px 4px inset, rgba(0, 0, 0, 0.4) 0 1px 1px;
 }
 
 #b0 {grid-column: 2; grid-row: 6;} #b1 {grid-column: 1; grid-row: 5;} #b2 {grid-column: 2; grid-row: 5;} #b3 {grid-column: 3; grid-row: 5;}
