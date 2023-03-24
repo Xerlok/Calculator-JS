@@ -48,13 +48,16 @@ const operations = {
     }
 }
 
-function operate (num1, operator, num2) {
+function operate (num1, operator, num2){
+    let result;
     num1 = parseInt(num1);
     num2 = parseInt(num2);
-    return operations[operator](num1,num2);
+    result = operations[operator](num1,num2);
+
+    return Math.round((result + Number.EPSILON) * 1000) / 1000;
 }
 
-function updateDisplay (){ 
+function calculate (){ 
     let num1 = '';
     let num2 = '';
     let operator = '';
@@ -102,12 +105,9 @@ function updateDisplay (){
     })
 
     dot.addEventListener("click", () => {
-        
+
     })
     });
 }
 
-updateDisplay();
-
-
-/* operators.forEach(operator => addEventListener("click", updateDisplay)); */
+calculate();
