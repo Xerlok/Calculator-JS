@@ -59,7 +59,6 @@ canvas {
 .button {
     font-size: 2rem;
     background-color: #A6E4FF;
-    /* background-image: linear-gradient(#37ADB2, #329CA0); */
     border: 1px solid #49c4f8;
     border-radius: 4px;
     box-shadow: rgba(0, 0, 0, 0.12) 0 1px 1px;
