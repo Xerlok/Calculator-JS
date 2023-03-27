@@ -58,7 +58,7 @@ function operate (num1, operator, num2){
     return Math.round((result + Number.EPSILON) * 1000) / 1000;
 }
 
-function calculate (){ 
+function calculate (){
     let num1 = '';
     let num2 = '';
     let operator = '';
@@ -74,21 +74,59 @@ function calculate (){
         waifu.src="img/waifu.png"
     }
 
+    function dele () {
+        if (display.innerText.includes('=')) {
+            display.textContent = "0";
+            reset();
+            return
+        }
+        if (operator === "") { // Read first number if no operator set yet
+            num1 = num1.slice(0, -1);
+            display.innerText = num1;
+            console.log('no operator');
+            console.log (num1);
+        } 
+
+        else { // Read second number
+            num2 = num2.slice(0, -1);
+            display.innerText = num1 + operator + num2;
+            console.log('yes operator')
+        }
+    }
+
+    function changeFont () {
+        textLength = display.textContent.length;
+        if (textLength > 10 && textLength <= 60) {
+            display.style.fontSize = "2rem";
+        }
+        else if (textLength > 60 && textLength <= 105) {
+            waifu.src="img/waifuA.png"
+            audioA.play();
+        }
+        else if (textLength > 105) {
+            waifu.src="img/waifuD.png"
+            audioD.play();
+        }
+    }
+
+    function handleNum (e) {
+        if (operator === "") { // Read first number if no operator set yet
+            if (num1.includes('.')) {dot.disabled = true;}
+            num1 += e.target.innerText;
+            display.innerText = num1;
+            console.log('kek');
+        } 
+        
+        else { // Read second number
+            dot.disabled = false;
+            if (num2.includes('.')) {dot.disabled = true;}
+            num2 += e.target.innerText;
+            display.innerText = num1 + operator + num2;
+        }
+    }
+
     numbers.forEach(number => {
-        number.addEventListener("click", e => {
-            if (operator === "") { // Read first number if no operator set yet
-                if (num1.includes('.')) {dot.disabled = true;}
-                num1 += e.target.innerText;
-                display.innerText = num1;
-            } 
-            
-            else { // Read second number
-                dot.disabled = false;
-                if (num2.includes('.')) {dot.disabled = true;}
-                num2 += e.target.innerText;
-                display.innerText = num1 + operator + num2;
-            }
-        });
+        number.addEventListener("click", e => {handleNum(e)});
     });
 
     operators.forEach(op => {
@@ -118,24 +156,15 @@ function calculate (){
         display.style.fontSize = "3rem";
         dot.disabled = false;
     })
+
+    del.addEventListener("click", dele);
+
     // Change font size depending on text length
     buttons.forEach(button => {
-        button.addEventListener("click", () => {
-            textLength = display.textContent.length;
-            if (textLength > 10 && textLength <= 60) {
-                display.style.fontSize = "2rem";
-            }
-            else if (textLength > 60 && textLength <= 105) {
-                waifu.src="img/waifuA.png"
-                audioA.play();
-            }
-            else if (textLength > 105) {
-                waifu.src="img/waifuD.png"
-                audioD.play();
-            }
-        })
+        button.addEventListener("click", changeFont)
     })
     });
 }
+
 
 calculate();
