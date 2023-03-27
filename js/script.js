@@ -62,8 +62,17 @@ function calculate (){
     let num1 = '';
     let num2 = '';
     let operator = '';
+    let audioA = new Audio('../audio/yameteA.mp3');
+    let audioD = new Audio('../audio/yameteD.mp3');
 
     let textLength = display.textContent.length;
+
+    function reset() {
+        num1 = '';
+        num2 = '';
+        operator = '';
+        waifu.src="img/waifu.png"
+    }
 
     numbers.forEach(number => {
         number.addEventListener("click", e => {
@@ -98,18 +107,14 @@ function calculate (){
 
     equals.addEventListener("click", () => {
         display.innerText = num1 + operator + num2 + '=' + operate(num1, operator, num2);
-        num1 = '';
-        num2 = '';
-        operator = '';
+        reset();
         display.style.fontSize = "3rem";
         dot.disabled = false;
     })
 
     clear.addEventListener("click", () => {
         display.innerText = "0";
-        num1 = '';
-        num2 = '';
-        operator = '';
+        reset();
         display.style.fontSize = "3rem";
         dot.disabled = false;
     })
@@ -117,12 +122,17 @@ function calculate (){
     buttons.forEach(button => {
         button.addEventListener("click", () => {
             textLength = display.textContent.length;
-            if (textLength > 10 && textLength <= 15) {
+            if (textLength > 10 && textLength <= 60) {
                 display.style.fontSize = "2rem";
             }
-/*             else if (textLength > 15) {
-                display.style.fontSize = "1rem";
-            } */
+            else if (textLength > 60 && textLength <= 105) {
+                waifu.src="img/waifuA.png"
+                audioA.play();
+            }
+            else if (textLength > 105) {
+                waifu.src="img/waifuD.png"
+                audioD.play();
+            }
         })
     })
     });

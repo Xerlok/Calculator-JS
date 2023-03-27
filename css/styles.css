@@ -46,7 +46,7 @@ canvas {
     background-color: #FFFDD9;
     border-radius: 20%;
     width: 15rem;
-    height: 4rem;
+    height: auto;
     white-space: normal;
     margin: 0;
     vertical-align: bottom;
@@ -56,6 +56,7 @@ canvas {
 
 #waifu {
     width: 18rem;
+    height: auto;
 }
 
 .buttons {
