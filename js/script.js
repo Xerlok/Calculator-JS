@@ -7,6 +7,7 @@ const plusMinus = document.getElementById('bPl-min');
 const dot = document.getElementById('bDec');
 const display = document.getElementById('results-window');
 const waifu = document.getElementById('waifu');
+const buttons = document.querySelectorAll('.button');
 
 
 const operations = {
@@ -32,7 +33,7 @@ const operations = {
     },
 
     // в степени
-    'x2': function exponent (num1, num2) {
+    'x^x': function exponent (num1, num2) {
         if (num2 == 2) {return num1 * num1}
         if (num2 == 1) {return num1}
 
@@ -50,8 +51,8 @@ const operations = {
 
 function operate (num1, operator, num2){
     let result;
-    num1 = parseInt(num1);
-    num2 = parseInt(num2);
+    num1 = parseFloat(num1);
+    num2 = parseFloat(num2);
     result = operations[operator](num1,num2);
 
     return Math.round((result + Number.EPSILON) * 1000) / 1000;
@@ -62,11 +63,18 @@ function calculate (){
     let num2 = '';
     let operator = '';
 
+    let textLength = display.textContent.length;
+
     numbers.forEach(number => {
         number.addEventListener("click", e => {
             if (operator === "") { // Read first number if no operator set yet
+                if (num1 === ".") {
+                    return
+                }
+                else {
                 num1 += e.target.innerText;
                 display.innerText = num1;
+                }
             } 
             
             else { // Read second number
@@ -95,6 +103,7 @@ function calculate (){
         num1 = '';
         num2 = '';
         operator = '';
+        display.style.fontSize = "3rem";
     })
 
     clear.addEventListener("click", () => {
@@ -102,10 +111,19 @@ function calculate (){
         num1 = '';
         num2 = '';
         operator = '';
+        display.style.fontSize = "3rem";
     })
 
-    dot.addEventListener("click", () => {
-
+    buttons.forEach(button => {
+        button.addEventListener("click", () => {
+            textLength = display.textContent.length;
+            if (textLength > 10 && textLength <= 15) {
+                display.style.fontSize = "2rem";
+            }
+            else if (textLength > 15) {
+                display.style.fontSize = "1rem";
+            }
+        })
     })
     });
 }

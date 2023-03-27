@@ -39,11 +39,19 @@ canvas {
 
 #results-window {
     text-align: center;
+    font-size: 3rem;
     border: solid;
     padding: 0.5rem 3rem;
     border-color: gray;
     background-color: #FFFDD9;
     border-radius: 20%;
+    width: 15rem;
+    height: 4rem;
+    white-space: normal;
+    margin: 0;
+    vertical-align: bottom;
+    text-align: right;
+    overflow-wrap: break-word;
 }
 
 #waifu {
