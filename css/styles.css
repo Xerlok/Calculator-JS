@@ -96,6 +96,10 @@ canvas {
     box-shadow: rgba(0, 0, 0, 0.15) 0 2px 4px inset, rgba(0, 0, 0, 0.4) 0 1px 1px;
 }
 
+.button:disabled {
+    background-color: #a6cedf;
+}
+
 #b0 {grid-column: 2; grid-row: 6;} #b1 {grid-column: 1; grid-row: 5;} #b2 {grid-column: 2; grid-row: 5;} #b3 {grid-column: 3; grid-row: 5;}
 #b4 {grid-column: 1; grid-row: 4;} #b5 {grid-column: 2; grid-row: 4;} #b6 {grid-column: 3; grid-row: 4;} #b7 {grid-column: 1; grid-row: 3;}
 #b8 {grid-column: 2; grid-row: 3;} #b9 {grid-column: 3; grid-row: 3;} 
@@ -103,3 +107,7 @@ canvas {
 #bPl-min {grid-column: 1; grid-row: 6;} #bDec {grid-column: 3; grid-row: 6;} #bEq {grid-column: 4; grid-row: 6;} #bPl {grid-column: 4; grid-row: 5;}
 #bSub {grid-column: 4; grid-row: 4;} #bMul {grid-column: 4; grid-row: 3;} #bDiv {grid-column: 4; grid-row: 2;} #bC {grid-column: 4; grid-row: 1;}
 #bD {grid-column: 3; grid-row: 2;} #bMod {grid-column: 2; grid-row: 2;} #bExp {grid-column: 1; grid-row: 2;} #bRoot {grid-column: 1; grid-row: 1;} 
+
+.notNumber {
+    background-color: #88dbff
+}

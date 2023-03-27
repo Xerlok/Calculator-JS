@@ -68,16 +68,14 @@ function calculate (){
     numbers.forEach(number => {
         number.addEventListener("click", e => {
             if (operator === "") { // Read first number if no operator set yet
-                if (num1 === ".") {
-                    return
-                }
-                else {
+                if (num1.includes('.')) {dot.disabled = true;}
                 num1 += e.target.innerText;
                 display.innerText = num1;
-                }
             } 
             
             else { // Read second number
+                dot.disabled = false;
+                if (num2.includes('.')) {dot.disabled = true;}
                 num2 += e.target.innerText;
                 display.innerText = num1 + operator + num2;
             }
@@ -104,6 +102,7 @@ function calculate (){
         num2 = '';
         operator = '';
         display.style.fontSize = "3rem";
+        dot.disabled = false;
     })
 
     clear.addEventListener("click", () => {
@@ -112,17 +111,18 @@ function calculate (){
         num2 = '';
         operator = '';
         display.style.fontSize = "3rem";
+        dot.disabled = false;
     })
-
+    // Change font size depending on text length
     buttons.forEach(button => {
         button.addEventListener("click", () => {
             textLength = display.textContent.length;
             if (textLength > 10 && textLength <= 15) {
                 display.style.fontSize = "2rem";
             }
-            else if (textLength > 15) {
+/*             else if (textLength > 15) {
                 display.style.fontSize = "1rem";
-            }
+            } */
         })
     })
     });
